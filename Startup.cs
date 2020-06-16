@@ -26,13 +26,18 @@ namespace DojoSurvey
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseStaticFiles();
-                app.UseMvc();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseStaticFiles();
+            
+            //useMVC must be
             app.UseMvc();
         }
     }

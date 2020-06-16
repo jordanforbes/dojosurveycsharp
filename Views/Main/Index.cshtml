@@ -7,13 +7,37 @@
 </head>
 <body>
     <div>
-        <form action="survey" method="post">
-            <p>Your Name: <input type="text" name="NameField"></p>
-            <p>Dojo Location: <input type="text" name="DojoField"></p>
-            <p>Favorite Language: <input type="text" name="LangField"></p>
-            <p>Comment (optional):</p>
-            <p><input type="text" name="CommentField"></p>
-            <p><input type="submit" value="Submit"></p>
+        <form action="process" method="post">
+
+            <div class="form-group">
+                <label for="Name">Name: </label> 
+                <input asp-for="Name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="Location">Location: </label>
+                <select asp-for="Location" class="form-control">
+                    <option value="Philadelphia">Philadelphia</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Chicago">Chicago</option>
+                </select>
+            </div>
+
+             <div class="form-group">
+                <label for="FavLang">FavLang: </label>
+                <select asp-for="FavLang" class="form-control">
+                    <option value="Ruby">Ruby</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Description: </label>
+                <textarea asp-for="Description" id="" cols="30" rows="10" class="form-control"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <input type="submit" value="Submit Survey" class="btn btn-outline-dark">
         </form>
     </div>
 </body>

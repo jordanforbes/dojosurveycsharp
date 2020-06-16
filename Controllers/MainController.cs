@@ -1,44 +1,57 @@
-using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DojoSurvey.Models;
+using Microsoft.AspNetCore.Http;
+
+
 namespace portfoliotwo.Controllers {
     public class MainController : Controller {
         [HttpGet ("")]
-        public ViewResult Index () {
+        public IActionResult Index () {
             return View ();
         }
-        [HttpGet("result")]
-        public ViewResult Result(string Name, string Dojo, string Lang, string Comment){
-            ViewBag.Name = Name;
-            ViewBag.Dojo = Dojo;
-            ViewBag.Lang = Lang;
-            ViewBag.Comment = Comment;
-            return View();
-        }
-
-        [HttpGet ("{res}")]
-        public IActionResult Director (string res) {
-            if (res == "home") {
-                return RedirectToAction ("Index");
-            }
-            return View ();
-        }
-
-        [HttpPost("survey")]
-        public IActionResult Survey(string NameField, string DojoField, string LangField, string CommentField)
+        
+       [HttpPost("process")]
+        public IActionResult Process(Survey Submitted)
         {
-            // ViewBag.Name = NameField;
-            // ViewBag.Dojo = DojoField;
-            // ViewBag.Lang = LangField;
-            // ViewBag.Comment = CommentField;
-            // return View();
-            return RedirectToAction("result", new {
-                Name = NameField, 
-                Dojo = DojoField,
-                Lang = LangField,
-                Comment = CommentField
-            });
-            
+            if(ModelState.IsValid)
+            {
+                Console.WriteLine($"{Submitted.Name} | {Submitted.Location} | {Submitted.FavLang} | {Submitted.Comment}");
+
+                ViewBag.Survey = Submitted;
+                // ViewBag.Count = count;
+                return View("Results");
+
+            }else{
+                return View("Index");
+            }
         }
 
+
+        // [HttpPost("survey")]
+        // public IActionResult Survey(string NameField, string DojoField, string LangField, string CommentField)
+        // {
+        //     // ViewBag.Name = NameField;
+        //     // ViewBag.Dojo = DojoField;
+        //     // ViewBag.Lang = LangField;
+        //     // ViewBag.Comment = CommentField;
+        //     // return View();
+        //     return RedirectToAction("result", new {
+        //         Name = NameField, 
+        //         Dojo = DojoField,
+        //         Lang = LangField,
+        //         Comment = CommentField
+        //     });
+            
+        // }
+        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        // public IActionResult Error()
+        // {
+        //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // }
     }
 }
