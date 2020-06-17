@@ -22,3 +22,4 @@ C:\Users\Jordf\onedrive\documents\coding\codingdojo\csharptime\DojoSurvey\obj\De
 C:\Users\Jordf\onedrive\documents\coding\codingdojo\csharptime\DojoSurvey\obj\Debug\netcoreapp2.2\DojoSurvey.pdb
 C:\Users\Jordf\onedrive\documents\coding\codingdojo\csharptime\DojoSurvey\obj\Debug\netcoreapp2.2\DojoSurvey.csproj.CopyComplete
 C:\Users\Jordf\onedrive\documents\coding\codingdojo\csharptime\dojosurvey\obj\Debug\netcoreapp2.2\Razor\Views\Main\Results.g.cshtml.cs
+C:\Users\Jordf\onedrive\documents\coding\codingdojo\csharptime\dojosurvey\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ViewImports.g.cshtml.cs
