@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    @using DojoSurvey.Models
+    @model Survey 
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
     <div>
         <form action="process" method="post">
 
@@ -33,9 +37,9 @@
             </div>
 
             <div class="form-group">
-                <label for="Description">Description: </label>
-                <textarea asp-for="Description" id="" cols="30" rows="10" class="form-control"></textarea>
-                <span class="text-danger" asp-validation-for="Description"></span>
+                <label for="Comment">Comment: </label>
+                <textarea asp-for="Comment" id="" cols="30" rows="10" class="form-control"></textarea>
+                <span class="text-danger" asp-validation-for="Comment"></span>
             </div>
             <input type="submit" value="Submit Survey" class="btn btn-outline-dark">
         </form>

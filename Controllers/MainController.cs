@@ -8,7 +8,7 @@ using DojoSurvey.Models;
 using Microsoft.AspNetCore.Http;
 
 
-namespace portfoliotwo.Controllers {
+namespace DojoSurvey.Controllers {
     public class MainController : Controller {
         [HttpGet ("")]
         public IActionResult Index () {
@@ -30,28 +30,5 @@ namespace portfoliotwo.Controllers {
                 return View("Index");
             }
         }
-
-
-        // [HttpPost("survey")]
-        // public IActionResult Survey(string NameField, string DojoField, string LangField, string CommentField)
-        // {
-        //     // ViewBag.Name = NameField;
-        //     // ViewBag.Dojo = DojoField;
-        //     // ViewBag.Lang = LangField;
-        //     // ViewBag.Comment = CommentField;
-        //     // return View();
-        //     return RedirectToAction("result", new {
-        //         Name = NameField, 
-        //         Dojo = DojoField,
-        //         Lang = LangField,
-        //         Comment = CommentField
-        //     });
-            
-        // }
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        // }
     }
 }
